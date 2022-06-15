@@ -16,5 +16,5 @@ There are various libaries:
   Contains parts of the libary for the current/voltage sensors INA219
 - mqtt.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/mqtt.py <br />
   Contains the mqtt connection
-- wifi.py
+- wifi.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/wifi.py <br />
   Contains the wifi connection
