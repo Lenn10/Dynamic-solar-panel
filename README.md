@@ -10,11 +10,11 @@ The used language is micropython.
 There are various libaries:
 - Main 
   Contains the Power meter reading and the MQTT connection
-- ina219 // chrisb2 - https://github.com/chrisb2/pyb_ina219/blob/master/ina219.py
+- ina219 // chrisb2 - https://github.com/chrisb2/pyb_ina219/blob/master/ina219.py <br />
   Contains the libary for the current/voltage sensors INA219
-- logging.py // chrisb2 -https://github.com/chrisb2/pyb_ina219/blob/master/logging.py
+- logging.py // chrisb2 -https://github.com/chrisb2/pyb_ina219/blob/master/logging.py <br />
   Contains parts of the libary for the current/voltage sensors INA219
-- mqtt.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/mqtt.py
+- mqtt.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/mqtt.py <br />
   Contains the mqtt connection
 - wifi.py
   Contains the wifi connection
