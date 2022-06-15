@@ -8,7 +8,7 @@ The used language is micropython.
 
 
 There are various libaries:
-- Main 
+- Main <br />
   Contains the Power meter reading and the MQTT connection
 - ina219 // chrisb2 - https://github.com/chrisb2/pyb_ina219/blob/master/ina219.py <br />
   Contains the libary for the current/voltage sensors INA219
