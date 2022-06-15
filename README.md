@@ -4,11 +4,11 @@ The proect is about a solar panel that follows the sun to get the maximum power 
 The used microcontrollers are one ESP8266 and two ESP32.
 The logic to follow the sun is flashed on the ESP866. Four LDR-sensors and a various 3D-Printed design part from fbuenonet/ are used for the logic.
 For the power reading we measure the current and the voltage with an INA219 sensor. With these two values we can calculate the power outcome of the solar panels. Due to the size of the libary for the INA219 sensors it's not possible to use ESP8266 fot the measuring, therefore we switched over to the ESP32.
-The used language is micropython.
+The used language for the microcontroller is micropython. The analysis of the measurements was done in jupyter notebooks.
 
 
 There are various libaries:
-- Main <br />
+- main.py <br />
   Contains the Power meter reading and the MQTT connection
 - ina219 // chrisb2 - https://github.com/chrisb2/pyb_ina219/blob/master/ina219.py <br />
   Contains the libary for the current/voltage sensors INA219
@@ -18,3 +18,4 @@ There are various libaries:
   Contains the mqtt connection
 - wifi.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/wifi.py <br />
   Contains the wifi connection
+-
