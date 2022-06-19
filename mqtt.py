@@ -7,9 +7,9 @@ from umqtt.robust import MQTTClient
 
 CERT_FILE = "/cert/cert.der"
 KEY_FILE = "/cert/private.der"
-MQTT_CLIENT_ID = "LEN"
-MQTT_PORT = 8883
-MQTT_HOST = "aze5y5oa2qksw-ats.iot.eu-central-1.amazonaws.com"
+MQTT_CLIENT_ID = <>
+MQTT_PORT = <>
+MQTT_HOST = <>
 
 
 def connect_mqtt():
