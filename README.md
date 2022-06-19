@@ -11,7 +11,9 @@ The following picture shows the wiring of the project.
 ![Wiring](https://user-images.githubusercontent.com/107534143/174503322-31b13158-e065-44cd-bc27-50133b7c3a6f.png)
 
 There are various libraries:
-- main.py <br />
+- main_LDR_logic.py <br />
+  Contains the logic of the dynamic solar panel
+- main_power_meter.py <br />
   Contains the power meter reading and the MQTT connection
 - ina219 // chrisb2 - https://github.com/chrisb2/pyb_ina219/blob/master/ina219.py <br />
   Contains the library for the current/voltage sensors INA219
@@ -21,8 +23,8 @@ There are various libraries:
   Contains the MQTT connection
 - wifi.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/wifi.py <br />
   Contains the wifi connection
- - solar_panel_evaluation.ipynb <br />
-   Contains the Jupyter Notebook, used for the processing and evaluation of the data
+- solar_panel_evaluation.ipynb <br />
+  Contains the Jupyter Notebook, used for the processing and evaluation of the data
 
 
 
