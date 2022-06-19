@@ -11,8 +11,8 @@ pin0 = ADC(0)
 
 # Define wait time between the readjustment of the solar panel (multiplied by 4)
 wait = 0.02
-# Grenzwert analog definieren
-# Definition des Grenzwerts für die LDR-Sensoren. Dieser definiert, wann der LDR im Schatten und wann in der Sonne ist.
+
+# Define limit (analog) to detect wether the LDR is in the sun or in the shadow
 limit_LDR = 300
 
 # define servos
@@ -38,7 +38,7 @@ working_value_up = mean_servo_top
 # set the step width for the servos movement
 delta = 1
 
-#function for the rading of the LDR values
+#function for reading of the LDR values
 def read_value(s0, s1, s2):
     time.sleep(wait)
     pinS0.value(s0)
@@ -49,61 +49,47 @@ def read_value(s0, s1, s2):
     print(value)
     return value, position
 
-
-
-
-# Alle LDR's auslesen und die Werte in Variablen abspeichern
 while True:
-    
-    
-    # LDR oben links lesen und speichern//Multiplexer A0
+  
+    # read LDR value top left // Multiplexer A0
     [value_top_left, top_left] = read_value(0, 0, 0)
 
-    # LDR oben rechts lesen und speichern//Multiplexer A1
+    # read LDR value top right // Multiplexer A1
     [value_top_right, top_right] = read_value(1, 0, 0)
 
-    # LDR unten links lesen und speichern//Multiplexer A2
+    # read LDR value bottom left // Multiplexer A2
     [value_bot_left, bot_left] = read_value(0, 1, 0)
 
-    # LDR unten rechts lesen und speichern//Multiplexer A3
+    # read LDR value bottom right // Multiplexer A3
     [value_bot_right, bot_right] = read_value(1, 1, 0)
-
-    #Fallbestimmg und nachregelung der Servos
-    # Fall1: Schatten trA1 + tlA0
-    time.sleep(0)
+    
     if top_right == True and top_left == True and bot_right == True and bot_left == True:
-        print("Wolke")
-        # time.sleep(3)#Pausenzeit falls wolke vorbeizieht, Zeit sollte dann af 10 min == 600 gestellt werden
+        print("cloud")
+        # time.sleep("600") # all values are measuring shadow, wait time is set to 10 minutes till the next readjustment
 
     else:
-
-        if top_right == True and top_left == True: #and working_value_up >= lim_servo_low:
-            # servo Drehung um 1° in Uhrzeigersinn
-            working_value_up = working_value_up - delta
-            servo_tilt.duty(working_value_up)
-            print("drehen")
+        if top_right == True and top_left == True and working_value_up >= lim_servo_low: # define the conditions for the case
+            working_value_up = working_value_up - delta # define the new working value for the servo
+            servo_tilt.duty(working_value_up) # tilt the servo by 1°
         #   servo_neigung.duty(mittelstellung-1)# servo Neigung um 1° gegen Uhrzeigersinn
 
-        # Fall2: Schatten tlA0 + blA2
-        elif top_left == True and bot_left == True:# and working_value_up <= lim_servo_up:
-            working_value_down = working_value_down + delta
-            servo_rotation.duty(working_value_down)
+        # Fall2: shadow tlA0 + blA2
+        elif top_left == True and bot_left == True and working_value_up <= lim_servo_up: # define the conditions for the case
+            working_value_down = working_value_down + delta # define the new working value for the servo
+            servo_rotation.duty(working_value_down) # tilt the servo by 1°
 
-         # servo Drehung um 1° gegen Uhrzeigersinn
+        # Fall 3: shadow trA1 +brA3
+        elif top_right == True and bot_right == True and working_value_down <= lim_servo_up: # define the conditions for the case
+            working_value_down = working_value_down - delta # define the new working value for the servo
+            servo_rotation.duty(working_value_down) # tilt the servo by 1°
 
-        # Fall 3: Schatten trA1 +brA3
-        elif top_right == True and bot_right == True:# and working_value_down <= lim_servo_up:
-            # servo Drehung um 1° in Uhrzeigersinn
-            working_value_down = working_value_down - delta
-            servo_rotation.duty(working_value_down)
-
-        # Fall 4: Schatten brA3 + blA2
-        elif bot_right == True and bot_left == True:# and working_value_up >= lim_servo_low:
-            # servo Drehung um 1° in Uhrzeigersinn
-            working_value_up = working_value_up + delta
-            servo_tilt.duty(working_value_up)
+        # Fall 4: shadow brA3 + blA2
+        elif bot_right == True and bot_left == True and working_value_up >= lim_servo_low: # define the conditions for the case
+            working_value_up = working_value_up + delta # define the new working value for the servo
+            servo_tilt.duty(working_value_up) # tilt the servo by 1°
 
         else:
-            # time.sleep(60)
-            # Timer auf x sekunden, da kein LDR im Schatten ist und nicht nachgeregelt werden muss
-            print("Keine Regelung notwendig" + str(working_value_up))
+            print("Currently no adjustment necessary")
+            time.sleep(1200)
+            # set the wating time to the calculatet value (20 min) till the next readjustment starts
+            
