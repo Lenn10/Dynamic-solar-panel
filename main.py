@@ -74,12 +74,12 @@ while True:
         #   servo_neigung.duty(mittelstellung-1)# servo Neigung um 1° gegen Uhrzeigersinn
 
         # Fall2: shadow tlA0 + blA2
-        elif top_left == True and bot_left == True and working_value_up <= lim_servo_up: # define the conditions for the case
+        elif top_left == True and bot_left == True and working_value_up <= lim_servo_top: # define the conditions for the case
             working_value_down = working_value_down + delta # define the new working value for the servo
             servo_rotation.duty(working_value_down) # tilt the servo by 1°
 
         # Fall 3: shadow trA1 +brA3
-        elif top_right == True and bot_right == True and working_value_down <= lim_servo_up: # define the conditions for the case
+        elif top_right == True and bot_right == True and working_value_down <= lim_servo_top: # define the conditions for the case
             working_value_down = working_value_down - delta # define the new working value for the servo
             servo_rotation.duty(working_value_down) # tilt the servo by 1°
 
