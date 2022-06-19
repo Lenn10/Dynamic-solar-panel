@@ -15,7 +15,7 @@ There are various libraries:
 - logging.py // chrisb2 -https://github.com/chrisb2/pyb_ina219/blob/master/logging.py <br />
   Contains parts of the library for the current/voltage sensors INA219
 - mqtt.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/mqtt.py <br />
-  Contains the mqtt connection
+  Contains the MQTT connection
 - wifi.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/wifi.py <br />
   Contains the wifi connection
  - solar_panel_evaluation.ipynb <br />
