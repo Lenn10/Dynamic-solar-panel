@@ -26,10 +26,6 @@ def convert_to_iso(datetime):
     y, m, d, _, h, mi, s, _ = datetime
     return "{}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}".format(y, m, d, h, mi, s)
 
-
-
-
-
 def publish_environment_data(mqtt_client):
 
     iso_timestamp = convert_to_iso(RTC().datetime())
@@ -40,7 +36,6 @@ def publish_environment_data(mqtt_client):
                "timestamp": iso_timestamp
                }
     mqtt_client.publish(MQTT_TOPIC, json.dumps(message))
-
 
 def connect_and_publish():
     print("connect wifi and synchronize RTC")
