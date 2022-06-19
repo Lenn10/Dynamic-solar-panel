@@ -1,5 +1,5 @@
 # Dynamic-solar-panel
-Github repository for a dynamic solar panel by Lennart Heinemann and Tobias T____ fot the IOT course at the university of applied science in Aachen.
+Github repository for a dynamic solar panel by Lennart Heinemann and Tobias Tournay fot the IOT course at the university of applied science in Aachen.
 The project is about a solar panel that follows the sun to get the maximum power output and sends the data via Mqtt to aws. To compare the results and conclude wether the dynamic is more efficient than an static solar panel, we measure the power output with a dynamic panel and a statical.
 The used microcontrollers are one ESP8266 and two ESP32.
 The logic to follow the sun is flashed on the ESP866. Four LDR-sensors and a various 3D-Printed design part from fbuenonet/ are used for the logic.
