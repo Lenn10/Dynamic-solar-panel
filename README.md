@@ -7,6 +7,8 @@ For the power reading we measure the current and the voltage with an INA219 sens
 The used language for the microcontroller is MicroPython. The analysis of the measurements were done in a Jupyter Notebook.
 
 
+![Wiring](https://user-images.githubusercontent.com/107534143/174503322-31b13158-e065-44cd-bc27-50133b7c3a6f.png)
+
 There are various libraries:
 - main.py <br />
   Contains the power meter reading and the MQTT connection
