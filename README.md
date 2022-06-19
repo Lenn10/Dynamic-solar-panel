@@ -18,4 +18,5 @@ There are various libaries:
   Contains the mqtt connection
 - wifi.py // ceedee666 - https://github.com/ceedee666/iot_introduction/blob/master/src/project_template/wifi.py <br />
   Contains the wifi connection
+ - solar_panel_evaluation.
 
